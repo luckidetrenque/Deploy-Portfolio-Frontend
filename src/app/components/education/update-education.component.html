@@ -1,0 +1,52 @@
+1<app-header></app-header>
+<main>
+  <section id="update-education" class="update-education wrapper py-3 bg-white form" *ngIf="education">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="container py-3 px-3 mt-5">
+            <div class="row">
+              <div class="col-6 form-left">
+                <a class="color-primary fw-bolder" routerLink="/"><fa-icon [icon]="faChevronLeft" size="1x"></fa-icon> Volver al Portfolio</a>
+              </div>
+              <div class="col-6 form-right">
+                <form (ngSubmit)="updateEducation()" novalidate #updateForm="ngForm">
+                  <div class="form-group">
+                    <label class="fw-bolder" for="institution">Nombre de la institución:</label>
+                    <input type="text" class="form-control" id="institution" name="institution"
+                      [(ngModel)]="education!.institution" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="degree">Descripción del título:</label>
+                    <input type="text" class="form-control" id="degree" name="degree" [(ngModel)]="education!.degree"
+                      required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="dateFrom">Año de inicio:</label>
+                    <input type="number" class="form-control" id="dateFrom" name="dateFrom"
+                      [(ngModel)]="education!.dateFrom" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="dateTo">Año de finalización:</label>
+                    <input type="number" class="form-control" id="dateTo" name="dateTo" [(ngModel)]="education!.dateTo"
+                      required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="logo">Logo:</label>
+                    <input type="file" class="form-control" id="logo" name="logo" [(ngModel)]="education!.logo"
+                    (change)="uploadImage($event)" accept=".jpg, jpeg, .png, .svg, .gif" required>
+                  </div>
+                  <div class="form-group mt-2 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid"><fa-icon [icon]="faSave"
+                        size="1x"></fa-icon> Guardar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>

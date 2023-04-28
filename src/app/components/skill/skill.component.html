@@ -1,0 +1,45 @@
+<section id="skill" class="skill wrapper py-3">
+  <div class="skew-left"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 id="skill" class="display-6 text-center mt-2"><{{title}}></h2>
+        <div class="d-flex justify-content-between align-items-center mb-3" *ngIf="isLogged">
+          <button type="button" class="btn btn-secondary fw-bolder me-1" routerLink="/create-skill">
+            <fa-icon [icon]="faPlus" size="1x"></fa-icon> Nueva Skill
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row gx-3 gy-3 justify-content-center">
+      <div class="col-4 col-sm-4 col-md-3 col-lg-2 text-center align-self-stretch" *ngFor="let skill of skills">
+        <div title="{{skill.name}} al {{skill.level}}%">
+          <circle-progress [percent]="(skill.level)" [radius]="60" [space]="-10" [outerStrokeGradient]="true" [outerStrokeWidth]="10"
+            [outerStrokeColor]="'var(--bs-secondary-light)'" [outerStrokeGradientStopColor]="'var(--bs-secondary)'"
+            [innerStrokeColor]="'var(--bs-light)'" [innerStrokeWidth]="10" [imageSrc]="('/assets/images/skills/'+skill.name.toLowerCase()+'.svg')" [imageHeight]="50"
+            [imageWidth]="50" [showImage]="true" [title]="(skill.name)" [animateTitle]="false"
+            [animationDuration]="(skill.level*50)" [showUnits]="false" [showBackground]="false" [clockwise]="false"
+            [startFromZero]="false" [lazy]="true" [ngClass]="'circle-progress'">
+          </circle-progress>
+        </div>
+        <div class="d-flex justify-content-center">
+          <h5>{{skill.name}}</h5>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="isLogged">
+          <button type="button" class="btn btn-outline-secondary fw-bolder me-1" routerLink="/update-skill/{{skill.id}}" title="Editar {{skill.name}}">
+            <fa-icon [icon]="faPen" size="1x"></fa-icon>
+          </button>
+          <button type="button" class="btn btn-outline-danger fw-bolder ms-1" title="¿Eliminar {{skill.name}}?">
+            <fa-icon [icon]="faTrash" size="1x"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="col col-3" *ngIf="skills?.length == 0">
+        <div class="alert alert-info" role="alert">
+          <h4 class="alert-heading">No hay {{title}} cargadas.</h4>
+          <p>¡No se encontraron {{title}} en la Base de Datos!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

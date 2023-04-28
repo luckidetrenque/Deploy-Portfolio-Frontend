@@ -1,0 +1,57 @@
+1<app-header></app-header>
+<main>
+  <section id="update-project" class="update-project wrapper py-3 bg-white form" *ngIf="project">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="container py-3 px-3 mt-5">
+            <div class="row">
+              <div class="col-6 form-left">
+                <a class="color-primary fw-bolder" routerLink="/"><fa-icon [icon]="faChevronLeft" size="1x"></fa-icon> Volver al Portfolio</a>
+              </div>
+              <div class="col-6 form-right">
+                <form (ngSubmit)="updateProject()" novalidate #updateForm="ngForm">
+                  <div class="form-group">
+                    <label class="fw-bolder" for="name">Nombre del proyecto:</label>
+                    <input type="text" class="form-control" id="name" name="name"
+                      [(ngModel)]="project!.name" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="description">Descripción del proyecto:</label>
+                    <textarea class="form-control" id="description" name="description" [(ngModel)]="project!.description"
+                      required rows="3"></textarea>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="year">Año de realización del proyecto:</label>
+                    <input type="number" class="form-control" id="year" name="year"
+                      [(ngModel)]="project!.date" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="link1">Link del Sitio Web:</label>
+                    <input type="text" class="form-control" id="link1" name="link1" [(ngModel)]="project!.link1"
+                      required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="link2">Link de Github:</label>
+                    <input type="text" class="form-control" id="link2" name="link2" [(ngModel)]="project!.link2"
+                      required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="image">Screenshot:</label>
+                    <input type="file" class="form-control" id="image" name="image" [(ngModel)]="project!.image"
+                    (change)="uploadImage($event)" accept=".jpg, jpeg, .png, .svg, .gif" required>
+                  </div>
+                  <div class="form-group mt-2 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid"><fa-icon [icon]="faSave"
+                        size="1x"></fa-icon> Guardar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>

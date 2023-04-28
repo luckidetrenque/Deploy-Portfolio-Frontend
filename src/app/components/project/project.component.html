@@ -1,0 +1,49 @@
+<section id="project" class="project wrapper py-3">
+  <div class="skew-right"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 id="project" class="display-6 text-center mt-2"><{{title}}></h2>
+        <div class="d-flex justify-content-between align-items-center mb-3" *ngIf="isLogged">
+          <button type="button" class="btn btn-primary fw-bolder me-1" routerLink="/create-project">
+            <fa-icon [icon]="faPlus" size="1x"></fa-icon> Nuevo Proyecto
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+    <div class="row gx-3 gy-3">
+      <div class="col-12 col-lg-6 d-flex align-self-stretch" *ngFor="let project of projects">
+        <div class="card pt-3">
+          <img src="/assets/images/projects/{{project.image}}" class="card-img-top mx-auto" alt="{{project.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{project.name}}</h5>
+            <p class="card-text">{{project.description}}</p>
+            <p class="card-text"><strong> Año de realización: {{project.date}}</strong></p>
+              <div class="d-flex justify-content-evenly align-items-center">
+                <a href="{{project.link1}}" class="color-primary"><fa-icon [icon]="faLink" size="1x"></fa-icon> Sitio web</a>
+                <a href="{{project.link2}}" class="color-primary"><fa-icon [icon]="faGithub" size="1x"></fa-icon> Github</a>
+                <div class="d-flex justify-content-center" *ngIf="isLogged">
+                  <button type="button" class="btn btn-outline-secondary fw-bolder me-1" routerLink="/update-project/{{project.id}}" title="Editar {{project.name}}">
+                    <fa-icon [icon]="faPen" size="1x"></fa-icon>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger fw-bolder ms-1" title="¿Eliminar {{project.name}}?">
+                    <fa-icon [icon]="faTrash" size="1x"></fa-icon>
+                  </button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-3" *ngIf="projects?.length == 0">
+        <div class="alert alert-info" role="alert">
+          <h4 class="alert-heading">No hay {{title}} cargadas.</h4>
+          <p>¡No se encontraron {{title}} en la Base de Datos!</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+</section>

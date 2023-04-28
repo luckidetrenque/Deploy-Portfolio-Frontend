@@ -1,0 +1,52 @@
+1<app-header></app-header>
+<main>
+  <section id="update-experience" class="update-experience wrapper py-3 bg-white form" *ngIf="experience">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="container py-3 px-3 mt-5">
+            <div class="row">
+              <div class="col-6 form-left">
+                <a class="color-primary fw-bolder" routerLink="/"><fa-icon [icon]="faChevronLeft" size="1x"></fa-icon> Volver al Portfolio</a>
+              </div>
+              <div class="col-6 form-right">
+                <form (ngSubmit)="updateExperience()" novalidate #updateForm="ngForm">
+                  <div class="form-group">
+                    <label class="fw-bolder" for="company">Nombre de la empresa:</label>
+                    <input type="text" class="form-control" id="company" name="company"
+                      [(ngModel)]="experience!.company" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="position">Puesto o Cargo:</label>
+                    <input type="text" class="form-control" id="position" name="position" [(ngModel)]="experience!.position"
+                      required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="description">Descripción de tareas:</label>
+                      <textarea class="form-control" id="description" name="description" [(ngModel)]="experience!.description"
+                      required rows="3"></textarea>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="dateFrom">Año de inicio:</label>
+                    <input type="number" class="form-control" id="dateFrom" name="dateFrom"
+                      [(ngModel)]="experience!.dateFrom" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="dateTo">Año de finalización:</label>
+                    <input type="number" class="form-control" id="dateTo" name="dateTo" [(ngModel)]="experience!.dateTo"
+                      required>
+                  </div>
+                  <div class="form-group mt-2 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid"><fa-icon [icon]="faSave"
+                        size="1x"></fa-icon> Guardar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>

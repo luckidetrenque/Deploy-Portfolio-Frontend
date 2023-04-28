@@ -1,0 +1,58 @@
+<section id="experience" class="experience wrapper py-3">
+  <div class="skew-left"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 id="experience" class="display-6 text-center my-3"><{{title}}></h2>
+        <div class="d-flex justify-content-between align-items-center mb-3" *ngIf="isLogged">
+          <button type="button" class="btn btn-primary fw-bolder me-1" routerLink="/create-experience">
+            <fa-icon [icon]="faPlus" size="1x"></fa-icon> Nueva Experiencia
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      <table class="table table-borderless align-top">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">Empresa</th>
+            <th scope="col" class="text-center">Puesto</th>
+            <th scope="col" class="text-center">Tareas</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let experience of experiences">
+            <td>
+              <h4>{{experience.company}}</h4>
+              <span class="fw-bolder" *ngIf="currentYear == experience.dateTo">{{experience.dateFrom}} - Actualidad</span>
+              <span class="fw-bolder" *ngIf="currentYear != experience.dateTo">{{experience.dateFrom}} - {{experience.dateTo}}</span>
+            </td>
+            <td>
+              <h5>{{experience.position}}</h5>
+            </td>
+            <td>
+              <p>{{experience.description}}</p>
+            </td>
+            <td class="align-middle" *ngIf="isLogged">
+              <button type="button" class="btn btn-outline-secondary fw-bolder mb-1" routerLink="/update-experience/{{experience.id}}" title="Editar {{experience.company}}">
+                <fa-icon [icon]="faPen" size="1x"></fa-icon>
+              </button>
+              <button type="button" class="btn btn-outline-danger fw-bolder mt-1" title="¿Eliminar {{experience.company}}?">
+                <fa-icon [icon]="faTrash" size="1x"></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="col col-3" *ngIf="experiences?.length == 0">
+        <div class="alert alert-info" role="alert">
+          <h4 class="alert-heading">No hay {{title}} cargadas.</h4>
+          <p>¡No se encontraron {{title}} en la Base de Datos!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

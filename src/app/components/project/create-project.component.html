@@ -1,0 +1,58 @@
+<app-header></app-header>
+<main>
+  <section id="create-project" class="create-project wrapper py-3 bg-white form">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="container py-3 px-3 mt-5">
+            <div class="row">
+              <div class="col-6 form-left">
+                <a class="color-primary fw-bolder" routerLink="/"><fa-icon [icon]="faChevronLeft"
+                  size="1x"></fa-icon> Volver al Portfolio</a>
+              </div>
+              <div class="col-6 form-right">
+                <form (ngSubmit)="createProject()" novalidate #createForm="ngForm">
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="name">Nombre del proyecto:</label>
+                    <input type="text" class="form-control" id="name" name="name"
+                      [(ngModel)]="name" placeholder="Nombre del proyecto" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="description">Descripción:</label>
+                      <textarea class="form-control" id="description" name="description" [(ngModel)]="description"
+                      placeholder="Descripción del proyecto" required rows="3"></textarea>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="year">Año:</label>
+                    <input type="number" class="form-control" id="year" name="year" [(ngModel)]="date"
+                      placeholder="Año de realización del proyecto" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="link1">Sitio web:</label>
+                    <input type="text" class="form-control" id="link1" name="link1" [(ngModel)]="link1"
+                      placeholder="Link del sitio web" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="link2">Github:</label>
+                    <input type="text" class="form-control" id="link2" name="link2" [(ngModel)]="link2"
+                      placeholder="Link de Github" required>
+                  </div>
+                  <div class="form-group mt-2">
+                    <label class="fw-bolder" for="image">Screenshot:</label>
+                    <input type="file" class="form-control" id="image" name="image" [(ngModel)]="image" placeholder="Screenshot"
+                    (change)="uploadImage($event)" accept=".jpg, jpeg, .png, .svg, .gif" required>
+                  </div>
+                  <div class="form-group mt-2 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="!createForm.valid"><fa-icon
+                        [icon]="faPlus" size="1x"></fa-icon> Agregar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>
