@@ -19,7 +19,6 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { EducationComponent } from './components/education/education.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { ProjectComponent } from './components/project/project.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -34,6 +33,7 @@ import { CreateProjectComponent } from './components/project/create-project.comp
 import { UpdateProjectComponent } from './components/project/update-project.component';
 import { CreateSkillComponent } from './components/skill/create-skill.component';
 import { UpdateSkillComponent } from './components/skill/update-skill.component';
+import { interceptorProvider } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,6 @@ import { UpdateSkillComponent } from './components/skill/update-skill.component'
     EducationComponent,
     HomeComponent,
     FooterComponent,
-    NavbarComponent,
     SkillComponent,
     ProjectComponent,
     RegisterComponent,
@@ -74,7 +73,7 @@ import { UpdateSkillComponent } from './components/skill/update-skill.component'
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

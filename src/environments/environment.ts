@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:'',
+  apiUrl:'http://localhost:8080',
   firebase: {
     projectId: 'lr-portfolio-frontend',
     appId: '1:1009870513706:web:485e7b14d0b9a41267c553',
