@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Education } from '../models/education';
-import { environment } from '../enviroments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,19 +21,19 @@ export class EducationService {
     return this.httpClient.get<Education>(`${this.apiUrl}education/${id}`);
   }
 
-  public findEducationByInstitution(name: string): Observable<Education> {
-    return this.httpClient.get<Education>(`${this.apiUrl}education/institution?name=${name}`);
+  public findEducationByInstitution(institution: string): Observable<Education> {
+    return this.httpClient.get<Education>(`${this.apiUrl}education/institution?i=${institution}`);
   }
 
   public findEducationByDegree(degree: string): Observable<Education> {
-    return this.httpClient.get<Education>(`${this.apiUrl}education/degree?name=${degree}`);
+    return this.httpClient.get<Education>(`${this.apiUrl}education/degree?d=${degree}`);
   }
 
   public createEducation(education: Education): Observable<any> {
     return this.httpClient.post<any>(`${this.apiUrl}education`, education);
   }
 
-  public deletEducation(id: number): Observable<any> {
+  public deleteEducation(id: number): Observable<any> {
     return this.httpClient.delete<any>(`${this.apiUrl}education/${id}`);
   }
 

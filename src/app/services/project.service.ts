@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project';
-import { environment } from '../enviroments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class ProjectService {
   }
 
   public findProjectByName(name: string): Observable<Project> {
-    return this.httpClient.get<Project>(`${this.apiUrl}projects/name?p=${name}`);
+    return this.httpClient.get<Project>(`${this.apiUrl}projects/name?n=${name}`);
   }
 
   public createProject(project: Project): Observable<any> {

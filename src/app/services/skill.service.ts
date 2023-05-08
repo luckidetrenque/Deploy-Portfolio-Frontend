@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Skill } from '../models/skill';
-import { environment } from '../enviroments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class SkillService {
   }
 
   public findSkillByName(name: string): Observable<Skill> {
-    return this.httpClient.get<Skill>(`${this.apiUrl}skills/name?p=${name}`);
+    return this.httpClient.get<Skill>(`${this.apiUrl}skills/name?n=${name}`);
   }
 
   public createSkill(skill: Skill): Observable<any> {

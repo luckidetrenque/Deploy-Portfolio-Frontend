@@ -11,12 +11,12 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getOneData(path: string, id: number): Observable<any> {
-    return this.httpClient.get<any>(`${this.apiUrl}${path}/${id}`);
+  public getOneData<T>(path: string, id: number): Observable<T> {
+    return this.httpClient.get<T>(`${this.apiUrl}${path}/${id}`, {responseType: 'json'});
   }
 
   public getData<T>(path: string): Observable<T> {
-    return this.httpClient.get<T>(`${this.apiUrl}${path}`);
+    return this.httpClient.get<T>(`${this.apiUrl}${path}`, {responseType: 'json'});
   }
 
   public createData<T>(path: string, body: T): Observable<T> {

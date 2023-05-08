@@ -22,7 +22,7 @@ export class PersonService {
   }
 
   public findPersonByNameAndSurname(name: string, surname: string): Observable<Person> {
-    return this.httpClient.get<Person>(`${this.apiUrl}persons/degree?name=${name}&surname=${surname}`);
+    return this.httpClient.get<Person>(`${this.apiUrl}persons/fullname?n=${name}&s=${surname}`);
   }
 
   public createPerson(person: Person): Observable<any> {
