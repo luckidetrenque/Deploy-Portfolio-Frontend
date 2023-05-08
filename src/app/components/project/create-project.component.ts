@@ -18,6 +18,7 @@ export class CreateProjectComponent implements OnInit {
 
   public project!: Project;
   public path: string = 'projects';
+  public eventChange = false;
 
   name: string = '';
   date: number = 0;
@@ -32,7 +33,7 @@ export class CreateProjectComponent implements OnInit {
   }
 
   public createProject() {
-    const project: Project = new Project(this.name, this.date, this.description, this.link1, this.link2, this.image);
+    const project: Project = new Project(this.name, this.date, this.description, this.link1, this.link2, this.image = 'https://firebasestorage.googleapis.com/v0/b/lr-portfolio-frontend.appspot.com/o/images%2Fprojects%2Fproject?alt=media&token=1547090f-fe99-40ef-9324-2ea44b6d94c6');
     this.dataService.createData(this.path, project).subscribe({
       next: (response: Project) => {
         alert(`¡${project.name} agregado correctamente!`);
@@ -46,9 +47,9 @@ export class CreateProjectComponent implements OnInit {
   }
 
   public uploadImage($event: any) {
-    const id = this.project.id;
-    const name = `education_${id}`;
-    this.imageService.uploadImage($event, name);
+    this.eventChange = true;
+    const name = `project`;
+    this.imageService.uploadImage($event, 'projects', name);
   }
 
 }

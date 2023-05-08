@@ -11,7 +11,7 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
-  title: string = 'Acerca de Mi';
+  title: string = 'Acerca de mi';
   isLogged = false;
   faTrash = faTrash;
   faPen = faPen;
@@ -32,7 +32,7 @@ export class AboutComponent implements OnInit {
   }
 
   public getPerson() {
-    this.dataService.getOneData(this.path, 1).subscribe({
+    this.dataService.getOneData<Person>(this.path, 1).subscribe({
       next: (response: Person) => {
         this.person = response;
       },

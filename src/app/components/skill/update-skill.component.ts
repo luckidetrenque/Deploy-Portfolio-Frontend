@@ -20,12 +20,13 @@ export class UpdateSkillComponent implements OnInit {
 
   public skill!: Skill;
   public path: string = 'skills';
+  public eventChange = false;
 
   constructor(public dataService: DataService, public imageService: ImageService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.dataService.getOneData(this.path, id).subscribe({
+    this.dataService.getOneData<Skill>(this.path, id).subscribe({
       next: (response: Skill) => {
         this.skill = response;
       },
@@ -39,6 +40,7 @@ export class UpdateSkillComponent implements OnInit {
 
   public updateSkill() {
     const id = this.activatedRoute.snapshot.params['id'];
+    this.skill.image = this.imageService.url;
     this.dataService.updateData(this.path, id, this.skill).subscribe({
       next: (response: Skill) => {
         alert(`¡Skill modificada correctamente!`);
@@ -52,8 +54,9 @@ export class UpdateSkillComponent implements OnInit {
   }
 
   public uploadImage($event: any) {
-    const id = this.skill.id;
-    const name = `education_${id}`;
-    this.imageService.uploadImage($event, name);
+    this.eventChange = true;
+    const id = this.activatedRoute.snapshot.params['id'];
+    const name = `skill-${id}`;
+    this.imageService.uploadImage($event, 'skills', name);
   }
 }

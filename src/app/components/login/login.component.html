@@ -6,11 +6,16 @@
         <div class="col">
           <div class="container py-3 px-3 mt-5">
             <div class="row">
-              <div class="col-6 form-left">
-                <a class="color-primary fw-bolder" routerLink="/"><fa-icon [icon]="faChevronLeft"
-                  size="1x"></fa-icon> Volver al Portfolio</a>
+              <div class="col position-relative">
+                <a class="color-primary fw-bolder position-fixed" routerLink="/"><fa-icon [icon]="faChevronLeft" size="1x"></fa-icon>
+                  Volver al Portfolio</a>
               </div>
-              <div class="col-6 d-flex flex-column justify-content-center form-right">
+            </div>
+            <div class="row">
+              <div class="col-6 col-xs-3 form-left">
+              </div>
+              <div class="col-6 col-xs-6 d-flex flex-column justify-content-center form-right">
+                <h2 class="text-center text-secondary">{{title}}</h2>
                 <form (ngSubmit)="userLogin()" novalidate #loginForm="ngForm">
                   <div class="form-group mt-2">
                     <label for="username" class="fw-bolder">Usuario:</label>
@@ -30,9 +35,9 @@
                     Error al iniciar sesión.
                   </div>
                 </form>
-                <div class="mt-2 d-flex justify-content-center">
+                <!-- <div class="mt-2 d-flex justify-content-center">
                   <p>¿No tiene una cuenta? <a routerLink="/register">Regístrese</a></p>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

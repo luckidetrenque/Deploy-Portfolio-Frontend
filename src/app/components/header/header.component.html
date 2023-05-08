@@ -5,18 +5,18 @@
             <div class="col col-md-4 col-lg-2">
               <app-logo></app-logo>
             </div>
-            <div class="col col-md-6 col-lg-6 text-center">
+            <div class="col col-md-4 col-lg-6 subtitle text-center">
               <h4 class="my-0">#YoProgramo</h4>
             </div>
-            <div class="col col-lg-2 social text-center">
+            <div class="col col-md-2 col-lg-2 social text-center">
               <app-social></app-social>
             </div>
             <div class="col col-md-2 col-lg-2 text-center">
               <a type="button" class="btn btn-outline-primary fw-bolder" (click)="onLogOut()" *ngIf="isLogged">
-                <fa-icon [icon]="faRightFromBracket" size="1x"></fa-icon> Logout
+                <fa-icon [icon]="faRightFromBracket" size="1x"></fa-icon><span class="px-1 btn-text">Logout</span>
               </a>
               <a type="button" class="btn btn-secondary fw-bolder" routerLink="/login" *ngIf="!isLogged">
-                <fa-icon [icon]="faRightToBracket" size="1x"></fa-icon> Login
+                <fa-icon [icon]="faRightToBracket" size="1x"></fa-icon><span class="px-1 btn-text">Login</span>
               </a>
             </div>
         </div>

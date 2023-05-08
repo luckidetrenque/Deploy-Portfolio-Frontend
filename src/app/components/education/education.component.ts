@@ -34,7 +34,7 @@ export class EducationComponent implements OnInit {
   }
 
   public getEducations() {
-    return this.dataService.getData<Education[]>(this.path).subscribe({
+    this.dataService.getData<Education[]>(this.path).subscribe({
       next: (response: Education[]) => {
         this.educations = response;
       },
@@ -45,13 +45,15 @@ export class EducationComponent implements OnInit {
   }
 
   public deleteEducation(id: number) {
-    return this.dataService.deleteData(this.path, id).subscribe({
-      next: () => {
-        this.getEducations();
-      },
-      error: (error: HttpErrorResponse) => {
-        alert(`Error al eliminar ${this.title}: ${error.message}`);
-      },
-    });
+    if(id != undefined) {
+      this.dataService.deleteData(this.path, id).subscribe({
+        next: () => {
+          this.getEducations();
+        },
+        error: (error: HttpErrorResponse) => {
+          alert(`Error al eliminar ${this.title}: ${error.message}`);
+        },
+      });
+    }
   }
 }

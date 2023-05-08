@@ -12,7 +12,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class UpdateExperienceComponent implements OnInit {
 
-  title: string = 'Editar Educación';
+  title: string = 'Editar Experiencia';
   faPen = faPen;
   faChevronLeft = faChevronLeft;
   faSave = faSave;
@@ -24,7 +24,7 @@ export class UpdateExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.dataService.getOneData(this.path, id).subscribe({
+    this.dataService.getOneData<Experience>(this.path, id).subscribe({
       next: (response: Experience) => {
         this.experience = response;
       },

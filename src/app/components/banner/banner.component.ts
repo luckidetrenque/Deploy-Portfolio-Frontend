@@ -32,7 +32,7 @@ export class BannerComponent implements OnInit {
   public uploadImage($event: any) {
     // const id = this.activatedRoute.snapshot.params['id'];
     const name = `banner`;
-    this.imageService.uploadImage($event, name);
+    this.imageService.uploadImage($event, '', name);
   }
 
   public reloadPage() {

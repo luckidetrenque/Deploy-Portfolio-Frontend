@@ -25,8 +25,7 @@ export class UpdateAboutComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    // this.person.photo = this.imageService.url;
-    this.dataService.getOneData(this.path, id).subscribe({
+    this.dataService.getOneData<Person>(this.path, id).subscribe({
       next: (response: Person) => {
         this.person = response;
       },
@@ -40,6 +39,7 @@ export class UpdateAboutComponent implements OnInit {
 
   public updatePerson() {
     const id = this.activatedRoute.snapshot.params['id'];
+    this.person.photo = this.imageService.url;
     this.dataService.updateData(this.path, id, this.person).subscribe({
       next: () => {
         alert(`¡Persona modificada correctamente!`);
@@ -53,8 +53,8 @@ export class UpdateAboutComponent implements OnInit {
   }
 
   public uploadImage($event: any) {
-    const id = this.activatedRoute.snapshot.params['id'];
+    // const id = this.activatedRoute.snapshot.params['id'];
     const name = `perfil`;
-    this.imageService.uploadImage($event, name);
+    this.imageService.uploadImage($event, '', name);
   }
 }

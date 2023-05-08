@@ -20,12 +20,13 @@ export class UpdateEducationComponent implements OnInit {
 
   public education!: Education;
   public path: string = 'education';
+  public eventChange = false;
 
   constructor(public dataService: DataService, public imageService: ImageService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.dataService.getOneData(this.path, id).subscribe({
+    this.dataService.getOneData<Education>(this.path, id).subscribe({
       next: (response: Education) => {
         this.education = response;
       },
@@ -39,6 +40,7 @@ export class UpdateEducationComponent implements OnInit {
 
   public updateEducation() {
     const id = this.activatedRoute.snapshot.params['id'];
+    this.education.logo = this.imageService.url;
     this.dataService.updateData(this.path, id, this.education).subscribe({
       next: () => {
         alert(`¡Educación modificada correctamente!`);
@@ -52,8 +54,9 @@ export class UpdateEducationComponent implements OnInit {
   }
 
   public uploadImage($event: any) {
-    const id = this.education.id;
-    const name = `education_${id}`;
-    this.imageService.uploadImage($event, name);
+    this.eventChange = true;
+    const id = this.activatedRoute.snapshot.params['id'];
+    const name = `education-${id}`;
+    this.imageService.uploadImage($event, 'education', name);
   }
 }

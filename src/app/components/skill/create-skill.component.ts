@@ -18,6 +18,7 @@ export class CreateSkillComponent implements OnInit {
 
   public skill!: Skill;
   public path: string = 'skills';
+  public eventChange = false;
 
   name: string = '';
   level: number = 0;
@@ -29,7 +30,7 @@ export class CreateSkillComponent implements OnInit {
   }
 
   public createSkill() {
-    const skill: Skill = new Skill(this.name, this.level, this.image);
+    const skill: Skill = new Skill(this.name, this.level, this.image='https://firebasestorage.googleapis.com/v0/b/lr-portfolio-frontend.appspot.com/o/images%2Fskills%2Fskill?alt=media&token=57d169de-b140-45aa-9528-027b35ffaa06');
     this.dataService.createData(this.path, skill).subscribe({
       next: (response: Skill) => {
         alert(`¡${skill.name} agregado correctamente!`);
@@ -43,9 +44,9 @@ export class CreateSkillComponent implements OnInit {
   }
 
   public uploadImage($event: any) {
-    const id = this.skill.id;
-    const name = `education_${id}`;
-    this.imageService.uploadImage($event, name);
+    this.eventChange = true;
+    const name = `skill`;
+    this.imageService.uploadImage($event, 'skills', name);
   }
 
 }

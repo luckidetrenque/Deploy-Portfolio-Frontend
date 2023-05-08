@@ -20,12 +20,13 @@ export class UpdateProjectComponent implements OnInit {
 
   public project!: Project;
   public path: string = 'projects';
+  public eventChange = false;
 
   constructor(public dataService: DataService, public imageService: ImageService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.dataService.getOneData(this.path, id).subscribe({
+    this.dataService.getOneData<Project>(this.path, id).subscribe({
       next: (response: Project) => {
         this.project = response;
       },
@@ -39,6 +40,7 @@ export class UpdateProjectComponent implements OnInit {
 
   public updateProject() {
     const id = this.activatedRoute.snapshot.params['id'];
+    this.project.image = this.imageService.url;
     this.dataService.updateData(this.path, id, this.project).subscribe({
       next: () => {
         alert(`¡Proyecto modificado correctamente!`);
@@ -52,8 +54,9 @@ export class UpdateProjectComponent implements OnInit {
   }
 
   public uploadImage($event: any) {
-    const id = this.project.id;
-    const name = `education_${id}`;
-    this.imageService.uploadImage($event, name);
+    this.eventChange = true;
+    const id = this.activatedRoute.snapshot.params['id'];
+    const name = `project-${id}`;
+    this.imageService.uploadImage($event, 'projects', name);
   }
 }

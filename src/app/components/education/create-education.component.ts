@@ -9,7 +9,7 @@ import { ImageService } from 'src/app/services/image.service';
 @Component({
   selector: 'app-create-education',
   templateUrl: './create-education.component.html',
-  styleUrls: ['./create-education.component.css']
+  styleUrls: ['./create-education.component.css'],
 })
 export class CreateEducationComponent implements OnInit {
   title: string = 'Crear Educación';
@@ -18,6 +18,7 @@ export class CreateEducationComponent implements OnInit {
 
   public education!: Education;
   public path: string = 'education';
+  public eventChange = false;
 
   institution: string = '';
   logo: string = '';
@@ -25,16 +26,24 @@ export class CreateEducationComponent implements OnInit {
   dateFrom: number = 0;
   dateTo: number = 0;
 
-  constructor(public dataService: DataService, public imageService: ImageService, private router: Router) {}
+  constructor(
+    public dataService: DataService,
+    public imageService: ImageService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  public createEducation($event: any) {
-    const education: Education = new Education(this.institution, this.logo, this.degree, this.dateFrom, this.dateTo);
+  public createEducation() {
+    const education: Education = new Education(
+      this.institution,
+      this.logo = 'https://firebasestorage.googleapis.com/v0/b/lr-portfolio-frontend.appspot.com/o/images%2Feducation%2Feducation?alt=media&token=6120978a-b72b-46e8-94d4-95e56e4db82b',
+      this.degree,
+      this.dateFrom,
+      this.dateTo
+    );
     this.dataService.createData(this.path, education).subscribe({
       next: (response: Education) => {
-        this.uploadImage($event);
         alert(`¡${education.degree} agregada correctamente!`);
         this.router.navigate(['']);
       },
@@ -42,12 +51,12 @@ export class CreateEducationComponent implements OnInit {
         alert(`Error al crear nueva Educación: ${error.message}`);
         this.router.navigate(['']);
       },
-    })
+    });
   }
 
   public uploadImage($event: any) {
-    const id = this.education.id;
-    const name = `education_${id}`;
-    this.imageService.uploadImage($event, name);
+    this.eventChange = true;
+    const name = `education`;
+    this.imageService.uploadImage($event, 'education', name);
   }
 }

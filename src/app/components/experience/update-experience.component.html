@@ -4,12 +4,18 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="container py-3 px-3 mt-5">
+          <div class="container py-3 px-3 mt-4">
             <div class="row">
-              <div class="col-6 form-left">
-                <a class="color-primary fw-bolder" routerLink="/"><fa-icon [icon]="faChevronLeft" size="1x"></fa-icon> Volver al Portfolio</a>
+              <div class="col position-relative">
+                <a class="color-primary fw-bolder position-fixed" routerLink="/"><fa-icon [icon]="faChevronLeft" size="1x"></fa-icon>
+                  Volver al Portfolio</a>
               </div>
-              <div class="col-6 form-right">
+            </div>
+            <div class="row">
+<div class="col-6 col-xs-3 form-left">
+              </div>
+              <div class="col-6 col-xs-6 form-right">
+                <h2 class="text-center text-secondary">{{title}}</h2>
                 <form (ngSubmit)="updateExperience()" novalidate #updateForm="ngForm">
                   <div class="form-group">
                     <label class="fw-bolder" for="company">Nombre de la empresa:</label>
@@ -24,7 +30,7 @@
                   <div class="form-group mt-2">
                     <label class="fw-bolder" for="description">Descripción de tareas:</label>
                       <textarea class="form-control" id="description" name="description" [(ngModel)]="experience!.description"
-                      required rows="3"></textarea>
+                      required rows="4"></textarea>
                   </div>
                   <div class="form-group mt-2">
                     <label class="fw-bolder" for="dateFrom">Año de inicio:</label>
@@ -37,7 +43,7 @@
                       required>
                   </div>
                   <div class="form-group mt-2 d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid"><fa-icon [icon]="faSave"
+                    <button type="submit" class="btn btn-outline-secondary" [disabled]="!updateForm.valid"><fa-icon [icon]="faSave"
                         size="1x"></fa-icon> Guardar</button>
                   </div>
                 </form>
