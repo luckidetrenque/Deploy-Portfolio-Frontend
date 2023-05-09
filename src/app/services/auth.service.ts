@@ -11,7 +11,7 @@ import { JwtDto } from '../models/jwt-dto';
 })
 export class AuthService {
 
-  private apiUrl = `${environment.apiUrl}/auth`;
+  private apiUrl = `https://lr-portfolio-backend.onrender.com/auth`;
 
   constructor(private httpClient: HttpClient) { }
 

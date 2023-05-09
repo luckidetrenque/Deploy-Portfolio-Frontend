@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 })
 export class PersonService {
 
-  private apiUrl = `${environment.apiUrl}/api/`;
+  private apiUrl = `https://lr-portfolio-backend.onrender.com/api/`;
 
   constructor(private httpClient: HttpClient) { }
 

@@ -15,7 +15,7 @@ const HTTPOptions: Object = {
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = `${environment.apiUrl}/api/`;
+  private apiUrl = `https://lr-portfolio-backend.onrender.com/api/`;
 
   constructor(private httpClient: HttpClient) {}
 
