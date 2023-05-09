@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col">
     <div class="row gx-3 gy-3">
-      <div class="col-12 col-lg-6 d-flex align-self-stretch" *ngFor="let project of projects">
+      <div class="col-12 col-lg-6 d-flex align-self-stretch" *ngFor="let project of projects | arrayFix">
         <div class="card pt-3">
           <img src="{{project.image}}" class="card-img-top mx-auto" alt="{{project.name}}">
           <div class="card-body">

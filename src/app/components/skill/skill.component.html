@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="row gx-3 gy-3 justify-content-center">
-      <div class="col-4 col-sm-4 col-md-3 col-lg-2 text-center align-self-stretch" *ngFor="let skill of skills">
+      <div class="col-4 col-sm-4 col-md-3 col-lg-2 text-center align-self-stretch" *ngFor="let skill of skills | arrayFix">
         <div title="{{skill.name}} al {{skill.level}}%">
           <circle-progress [percent]="(skill.level)" [radius]="60" [space]="-10" [outerStrokeGradient]="true" [outerStrokeWidth]="10"
             [outerStrokeColor]="'var(--bs-secondary-light)'" [outerStrokeGradientStopColor]="'var(--bs-secondary)'"

@@ -34,6 +34,7 @@ import { UpdateProjectComponent } from './components/project/update-project.comp
 import { CreateSkillComponent } from './components/skill/create-skill.component';
 import { UpdateSkillComponent } from './components/skill/update-skill.component';
 import { interceptorProvider } from './services/interceptor.service';
+import { ArrayFixPipe } from './pipes/array-fix.pipe';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { interceptorProvider } from './services/interceptor.service';
     CreateProjectComponent,
     UpdateProjectComponent,
     CreateSkillComponent,
-    UpdateSkillComponent
+    UpdateSkillComponent,
+    ArrayFixPipe
   ],
   imports: [
     BrowserModule,

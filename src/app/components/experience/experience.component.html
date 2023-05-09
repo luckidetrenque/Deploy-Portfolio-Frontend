@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let experience of experiences">
+          <tr *ngFor="let experience of experiences | arrayFix">
             <td>
               <h4>{{experience.company}}</h4>
               <span class="fw-bolder" *ngIf="currentYear == experience.dateTo">{{experience.dateFrom}} - Actualidad</span>
