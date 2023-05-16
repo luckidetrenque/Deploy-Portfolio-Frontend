@@ -37,7 +37,7 @@ export class CreateEducationComponent implements OnInit {
   public createEducation() {
     const education: Education = new Education(
       this.institution,
-      this.logo = 'https://firebasestorage.googleapis.com/v0/b/lr-portfolio-frontend.appspot.com/o/images%2Feducation%2Feducation?alt=media&token=6120978a-b72b-46e8-94d4-95e56e4db82b',
+      this.logo = 'https://firebasestorage.googleapis.com/v0/b/lr-portfolio-frontend.appspot.com/o/images%2Feducation%2Feducation?alt=media&token=72604050-1530-4120-b7e0-f1b0df14d46d',
       this.degree,
       this.dateFrom,
       this.dateTo

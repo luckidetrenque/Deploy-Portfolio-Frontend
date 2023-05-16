@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+
 
 const HTTPOptions: Object = {
 
@@ -15,7 +15,7 @@ const HTTPOptions: Object = {
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = `https://lr-portfolio-backend.onrender.com/api/`;
+  private apiUrl = `https://portfolio-luckidetrenque.koyeb.app/api/`;
 
   constructor(private httpClient: HttpClient) {}
 
