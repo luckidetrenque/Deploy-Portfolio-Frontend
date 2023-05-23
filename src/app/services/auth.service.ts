@@ -11,7 +11,7 @@ import { JwtDto } from '../models/jwt-dto';
 })
 export class AuthService {
 
-  private apiUrl = `https://lr-portfolio-backend.onrender.com/auth`;
+  private apiUrl = `https://portfolio-luckidetrenque.koyeb.app/auth`;
 
   constructor(private httpClient: HttpClient) { }
 
