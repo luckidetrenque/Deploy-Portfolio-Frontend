@@ -12,41 +12,21 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
-      <table class="table table-borderless align-top" *ngIf="experiences?.length != 0">
-        <thead>
-          <tr>
-            <th scope="col" class="text-center">Empresa</th>
-            <th scope="col" class="text-center">Puesto</th>
-            <th scope="col" class="text-center">Tareas</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let experience of experiences | arrayFix">
-            <td>
-              <h4>{{experience.company}}</h4>
-              <span class="fw-bolder" *ngIf="currentYear == experience.dateTo">{{experience.dateFrom}} - Actualidad</span>
-              <span class="fw-bolder" *ngIf="currentYear != experience.dateTo">{{experience.dateFrom}} - {{experience.dateTo}}</span>
-            </td>
-            <td>
-              <h5>{{experience.position}}</h5>
-            </td>
-            <td>
-              <p>{{experience.description}}</p>
-            </td>
-            <td class="align-middle" *ngIf="isLogged">
-              <button type="button" class="btn btn-outline-secondary fw-bolder mb-1" routerLink="/update-experience/{{experience.id}}" title="Editar {{experience.company}}">
-                <fa-icon [icon]="faPen" size="1x"></fa-icon>
-              </button>
-              <button type="button" class="btn btn-outline-danger fw-bolder mt-1"
-              (click)="deleteExperience(experience.id)" title="¿Eliminar {{experience.company}}?">
-                <fa-icon [icon]="faTrash" size="1x"></fa-icon>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="col-12 col-xs-12 col-md-4 col-lg-4 col-xl-4" *ngFor="let experience of experiences | arrayFix">
+        <h4>{{experience.company}}</h4>
+        <span class="fw-bolder" *ngIf="currentYear == experience.dateTo">{{experience.dateFrom}} - Actualidad</span>
+        <span class="fw-bolder" *ngIf="currentYear != experience.dateTo">{{experience.dateFrom}} - {{experience.dateTo}}</span>
+        <h5>{{experience.position}}</h5>
+        <p>{{experience.description}}</p>
+        <div class="align-middle" *ngIf="isLogged">
+          <button type="button" class="btn btn-outline-secondary fw-bolder mb-1" routerLink="/update-experience/{{experience.id}}" title="Editar {{experience.company}}">
+            <fa-icon [icon]="faPen" size="1x"></fa-icon>
+          </button>
+          <button type="button" class="btn btn-outline-danger fw-bolder mt-1"
+          (click)="deleteExperience(experience.id)" title="¿Eliminar {{experience.company}}?">
+            <fa-icon [icon]="faTrash" size="1x"></fa-icon>
+          </button>
+        </div>
       </div>
       <div class="col col-3" *ngIf="experiences?.length == 0">
         <div class="alert alert-info" role="alert">

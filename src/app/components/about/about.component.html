@@ -1,13 +1,13 @@
 <section id="about" class="about wrapper pb-5">
   <div class="container pt-4">
     <div class="row">
-      <div class="col-4 text-center">
+      <div class="col-12 col-sm-4 text-center">
         <img src="{{person?.photo}}" alt="{{person?.name}} {{person?.surname}}" title="{{person?.name}} {{person?.surname}}"
           class="img-fluid rounded-circle .mt-n5 img-perfil">
         <h1 class="mt-3 mb-0">{{person?.name}} {{person?.surname}}</h1>
         <h4 class="text-dark">{{person?.degree}}</h4>
       </div>
-      <div class="col-8 mt-3 d-flex flex-column">
+      <div class="col-12 col-sm-8 mt-3 d-flex flex-column">
         <div class="d-flex justify-content-start order-3 edit-about" *ngIf="isLogged">
           <button type="button" class="btn btn-outline-secondary fw-bolder" routerLink="/update-about/{{person?.id}}">
             <fa-icon [icon]="faPen" size="1x"></fa-icon> Editar Perfil
