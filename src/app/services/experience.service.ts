@@ -9,7 +9,7 @@ import { Experience } from '../models/experience';
 })
 export class ExperienceService {
 
-  private apiUrl = `https://portfolio-luckidetrenque.koyeb.app/api/`;
+  private apiUrl = `https://lr-portfolio-backend.onrender.com/api/`;
 
   constructor(private httpClient: HttpClient) { }
 

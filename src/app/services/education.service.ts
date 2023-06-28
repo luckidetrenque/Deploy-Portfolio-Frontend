@@ -9,7 +9,7 @@ import { Education } from '../models/education';
 })
 export class EducationService {
 
-  private apiUrl = `https://portfolio-luckidetrenque.koyeb.app/api/`;
+  private apiUrl = `https://lr-portfolio-backend.onrender.com/api/`;
 
   constructor(private httpClient: HttpClient) { }
 

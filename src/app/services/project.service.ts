@@ -9,7 +9,7 @@ import { Project } from '../models/project';
 })
 export class ProjectService {
 
-  private apiUrl = `https://portfolio-luckidetrenque.koyeb.app/api/`;
+  private apiUrl = `https://lr-portfolio-backend.onrender.com/api/`;
 
   constructor(private httpClient: HttpClient) { }
 

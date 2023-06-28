@@ -9,7 +9,7 @@ import { Skill } from '../models/skill';
 })
 export class SkillService {
 
-  private apiUrl = `https://portfolio-luckidetrenque.koyeb.app/api/`;
+  private apiUrl = `https://lr-portfolio-backend.onrender.com/api/`;
 
   constructor(private httpClient: HttpClient) { }
 

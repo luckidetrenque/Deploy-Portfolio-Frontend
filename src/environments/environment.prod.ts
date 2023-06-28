@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://portfolio-luckidetrenque.koyeb.app',
+  apiUrl: 'https://lr-portfolio-backend.onrender.com',
   firebase: {
     projectId: 'lr-portfolio-frontend',
     appId: '1:1009870513706:web:485e7b14d0b9a41267c553',
