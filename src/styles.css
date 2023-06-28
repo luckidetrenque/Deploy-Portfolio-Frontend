@@ -287,14 +287,12 @@ small {
   background-color: var(--bs-secondary-light);
 }
 
-.experience thead {
-  background-color: var(--bs-secondary);
-}
-.experience tbody tr {
+.experience .col-12 {
   border-bottom: 1px solid var(--bs-secondary);
+  margin-bottom: 1em;
 }
 
-.experience tbody tr:last-child {
+.experience .col-12:last-child {
   border-bottom: none;
 }
 
@@ -426,6 +424,10 @@ input[type="file"] {
   .skew-right,
   .skew-left {
     display: block;
+  }
+  .experience .col-12 {
+    border-bottom: none;
+    margin-bottom: 0;
   }
 }
 

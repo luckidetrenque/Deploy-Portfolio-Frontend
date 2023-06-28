@@ -22,8 +22,8 @@
             <p class="card-text">{{project.description}}</p>
             <p class="card-text"><strong> Año de realización: {{project.date}}</strong></p>
               <div class="d-flex justify-content-evenly align-items-center">
-                <a href="{{project.link1}}" class="color-primary"><fa-icon [icon]="faLink" size="1x" target="_blank"></fa-icon> Sitio web</a>
-                <a href="{{project.link2}}" class="color-primary"><fa-icon [icon]="faGithub" size="1x" target="_blank"></fa-icon> Github</a>
+                <a href="{{project.link1}}" class="color-primary" target="_blank"><fa-icon [icon]="faLink" size="1x"></fa-icon> Sitio web</a>
+                <a href="{{project.link2}}" class="color-primary" target="_blank"><fa-icon [icon]="faGithub" size="1x"></fa-icon> Github</a>
                 <div class="d-flex justify-content-center" *ngIf="isLogged">
                   <button type="button" class="btn btn-outline-secondary fw-bolder me-1" routerLink="/update-project/{{project.id}}" title="Editar {{project.name}}">
                     <fa-icon [icon]="faPen" size="1x"></fa-icon>
